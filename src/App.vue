@@ -5,9 +5,9 @@ import TheHeader from '@/components/nav/TheHeader.vue'
 
 <template>
   <TheHeader />
-  <section class="content">
+  <main class="content">
     <RouterView />
-  </section>
+  </main>
 </template>
 
 <style scoped>
