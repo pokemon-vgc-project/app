@@ -1,7 +1,7 @@
 <template>
     <TheContainer>
         <TheTitle>Natures</TheTitle>
-        <table>
+        <table v-if="natures">
             <thead>
                 <tr>
                     <th></th>
@@ -10,20 +10,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                <tr v-for="nature in natures" :key="nature.id">
+                    <td>{{ nature.name }}</td>
+                    <td>{{ nature.increase }}</td>
+                    <td>{{ nature.decrease }}</td>
                 </tr>
             </tbody>
         </table>
     </TheContainer>
 </template>
+
+<script setup lang="ts">
+import { useNatures } from '@/composables/useNatures';
+
+const { natures } = useNatures()
+</script>
 
 <style scoped>
 table {
