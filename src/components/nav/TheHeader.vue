@@ -5,13 +5,13 @@
                 <!-- Navigation links -->
                 <div class="flex w-full flex-wrap justify-start">
                     <div class="ml-10">
-                        <a href="#HOME">
+                        <RouterLink :to="{ name: 'home' }">
                             <img class="h-16" src="@/assets/images/pokedex-logo.png">
-                        </a>
+                        </RouterLink>
                     </div>
                     <ul class="me-auto flex flex-row justify-between">
                         <li class="h-16">
-                            <a href="#Natures">Natures</a>
+                            <RouterLink :to="{ name: 'natures' }">Natures</RouterLink>
                         </li>
                         <li class="h-16">
                             <a href="#Pokedex">Pokedex</a>
