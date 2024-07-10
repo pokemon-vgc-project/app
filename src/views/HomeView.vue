@@ -5,7 +5,7 @@
   </main>
 </template>
 
-<script setup type="ts">
+<script setup lang="ts">
 import { userStore } from '@/stores/user'
 import { computed } from 'vue';
 
