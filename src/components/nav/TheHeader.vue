@@ -36,8 +36,8 @@ ul li a {
     @apply flex size-full items-center px-2 bg-white font-serif border-b-4 border-transparent transition duration-0 ease-in;
 }
 
-ul li a:active {
-    @apply border-b-4 border-red-600 duration-300;
+.router-link-active {
+    @apply border-b-4 border-red-400 duration-300;
 }
 
 ul li a:hover {
