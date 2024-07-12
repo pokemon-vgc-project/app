@@ -49,6 +49,6 @@ table tbody tr:hover {
 
 table th,
 table td {
-    @apply border-b text-center p-4;
+    @apply border-b text-center p-4 cursor-default;
 }
 </style>
