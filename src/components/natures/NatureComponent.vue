@@ -37,7 +37,7 @@ table td {
 }
 
 table tbody td:first-child {
-    @apply text-lg font-medium;
+    @apply text-lg font-medium text-left md:text-center;
 }
 
 table tbody tr:hover {
