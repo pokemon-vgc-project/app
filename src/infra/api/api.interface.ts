@@ -1,5 +1,6 @@
 export interface BaseRequestOptions {
     router: string;
+    parameters?: Record<string, string> | string | URLSearchParams;
 }
 
 export interface Api {
