@@ -8,7 +8,7 @@ interface GetPokemonsParametersSort {
     order?: 'asc' | 'desc';
 }
 
-interface GetPokemonsParametersFilters {
+export interface GetPokemonsParametersFilters {
     forms?: string[];
     types?: number[];
     abilities?: number[];

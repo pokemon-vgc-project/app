@@ -1,4 +1,4 @@
-interface Meta {
+export interface Meta {
     page: number
     skip: number
     limit: number
