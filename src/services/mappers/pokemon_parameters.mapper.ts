@@ -3,7 +3,7 @@ export interface FilterStartEndModel {
     end?: number;
 }
 
-interface GetPokemonsParametersSort {
+export interface GetPokemonsParametersSort {
     name: string;
     order?: 'asc' | 'desc';
 }

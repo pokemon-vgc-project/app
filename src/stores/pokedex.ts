@@ -2,11 +2,12 @@ import { defineStore } from 'pinia'
 import { usePokedex } from '@/composables/usePokedex'
 import type { Pokemon } from "@/dto/pokedex.interface"
 import type { Meta } from '@/dto/pokedex_api.interface'
-import type { GetPokemonsParametersFilters } from '@/services/mappers/pokemon_parameters.mapper'
+import type { GetPokemonsParametersFilters, GetPokemonsParametersSort } from '@/services/mappers/pokemon_parameters.mapper'
 
 
 interface PokedexState {
   filters: GetPokemonsParametersFilters
+  sorts: GetPokemonsParametersSort[]
   pokemons: Pokemon[] | null
   meta: Meta | null
   isLoading: boolean
@@ -16,6 +17,7 @@ interface PokedexState {
 export const usePokedexStore = defineStore('pokedex', {
   state: (): PokedexState => ({
     filters: {},
+    sorts: [],
     pokemons: null,
     meta: null,
     isLoading: false,
@@ -23,7 +25,7 @@ export const usePokedexStore = defineStore('pokedex', {
   }),
 
   actions: {
-    setSearch(newFilters: GetPokemonsParametersFilters) {
+    setFilters(newFilters: GetPokemonsParametersFilters) {
       const useDebounce = this.filters.name !== newFilters.name
       this.filters = newFilters
 
@@ -34,12 +36,18 @@ export const usePokedexStore = defineStore('pokedex', {
       this.debouncedSearch()
     },
 
+    setOrder(newOrder: GetPokemonsParametersSort) {
+      this.sorts = [newOrder]
+      this.performanceSearch()
+    },
+
     debouncedSearch() {
       this.clearDebounce()
       this.timeoutId = setTimeout(() => {
         this.performanceSearch()
       }, 500)
     },
+
     clearDebounce() {
       if (this.timeoutId) {
         clearTimeout(this.timeoutId)
@@ -52,6 +60,7 @@ export const usePokedexStore = defineStore('pokedex', {
         this.isLoading = true
         const result = await usePokedex({
           filters: this.filters,
+          sorts: this.sorts,
           limit: 10
         })
         this.pokemons = result.data;
