@@ -14,7 +14,7 @@
                             <RouterLink :to="{ name: 'natures' }">Natures</RouterLink>
                         </li>
                         <li class="h-16">
-                            <a href="#Pokedex">Pokedex</a>
+                            <RouterLink :to="{ name: 'pokedex' }"> Pokedex</RouterLink>
                         </li>
                     </ul>
                 </div>

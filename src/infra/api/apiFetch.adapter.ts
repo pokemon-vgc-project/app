@@ -12,8 +12,9 @@ export class ApiFetchAdapter implements Api {
         this.baseUrl = baseUrl
     }
 
-    async getRequest<Return>({ router }: BaseRequestOptions): Promise<Return> {
-        const response = await fetch(`${this.baseUrl}${router}`, {
+    async getRequest<Return>({ router, parameters }: BaseRequestOptions): Promise<Return> {
+        const props = parameters ? `?${new URLSearchParams(parameters).toString()}` : ''
+        const response = await fetch(`${this.baseUrl}${router}${props}`, {
             method: 'GET',
         })
 
