@@ -61,7 +61,7 @@ export const usePokedexStore = defineStore('pokedex', {
         const result = await usePokedex({
           filters: this.filters,
           sorts: this.sorts,
-          limit: 10
+          limit: 12
         })
         this.pokemons = result.data;
         this.meta = result.meta;
